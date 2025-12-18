@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+# mxcrbn.com
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ whoami
+Max Corbani - YC alum → VC @ >commit
+Focus: Commercial OSS, infra, devtools
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Personal website. Built in public. Optimized for humans and LLMs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+Next.js 16 (App Router) + Tailwind
+ReactMarkdown + custom syntax
+Cloudflare Pages (static export)
+DejaVu Sans Mono (because monospace > *)
+```
 
-## Learn More
+## Quick Start
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev    # http://localhost:3000
+npm run build  # → /out
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Custom Markdown Syntax
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```markdown
+[image: /path.png | 50%]
+[iframe: https://example.com]
+[whiteBorder: Your quote here]
+[multicolorBorder: Your callout here]
+```
 
-## Deploy on Vercel
+Line breaks in border blocks = automatic `<br>` tags.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to GitHub Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Automatic deployment via GitHub Actions:
+
+1. Push to `main` branch
+2. GitHub Actions builds and deploys automatically
+3. Enable GitHub Pages in repo settings:
+   - Settings → Pages → Source: "GitHub Actions"
+
+Manual deployment:
+```bash
+npm run build
+# Push the /out directory to gh-pages branch
+```
+
+## Adding Posts
+
+Create `/posts/your-slug.md`:
+
+```markdown
+---
+title: "Your Title"
+date: "2025-01-15"
+---
+
+Your content...
+```
+
+Auto-generates:
+- Dynamic route at `/posts/your-slug`
+- Sitemap entry
+- OG image (expects `/public/og-your-slug.png`)
+- Structured data (JSON-LD)
+
+## SEO
+
+All the things:
+- Dynamic metadata (titles, descriptions, keywords)
+- Open Graph + Twitter Cards (1200x627px)
+- JSON-LD structured data (Person + BlogPosting)
+- Auto-generated sitemap.xml + robots.txt
+- LLM crawler support (GPTBot, Claude-Web, anthropic-ai, Google-Extended)
+
+## File Structure
+
+```
+app/
+  layout.tsx           # SEO metadata
+  page.tsx             # Home
+  portfolio/           # Portfolio companies
+  posts/[slug]/        # Dynamic blog posts
+  sitemap.ts           # Auto-generated sitemap
+  robots.ts            # Crawler config
+components/            # Header, Footer
+lib/posts.ts           # Markdown processing
+posts/*.md             # Blog content
+public/                # Static assets + OG images
+```
+
+## License
+
+© 2025 Max Corbani. All rights reserved.
+
+---
+
+Built with [Claude Code](https://claude.com/claude-code)
