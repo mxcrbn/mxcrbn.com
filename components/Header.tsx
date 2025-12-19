@@ -21,14 +21,14 @@ export default function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a14]' : ''}`} style={scrolled ? { boxShadow: '0px 3px 12px 0px rgba(0, 0, 0, 0.75)' } : {}}>
       <div className="w-full py-4 flex justify-center">
         <div className="w-full flex justify-between items-center" style={{ paddingLeft: '10%', paddingRight: '10%', maxWidth: '2500px' }}>
-          <div style={{ opacity: 0.75 }}>
+          <div style={{ opacity: 0.75 }} className="flex items-center">
             <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
-              <Image src="/logo.svg" alt="mxcrbn" width={160} height={53} />
+              <Image src="/logo.svg" alt="mxcrbn" width={136} height={35} />
             </Link>
           </div>
 
           <nav className="flex items-center gap-6">
-            <div className="flex items-center gap-4" style={{ opacity: 0.75 }}>
+            <div className="flex items-center gap-4 max-[480px]:hidden" style={{ opacity: 0.75 }}>
             <a
               href="https://www.linkedin.com/in/mxcrbn"
               target="_blank"

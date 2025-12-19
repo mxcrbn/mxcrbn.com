@@ -102,7 +102,7 @@ export default function Portfolio() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+      <div className="grid gap-6 mb-16" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 225px))', justifyContent: 'center' }}>
         {companies.map((company, index) => {
           const content = (
             <div className="group flex flex-col items-center text-center p-8 rounded-lg transition-all hover:bg-gray-800/50">

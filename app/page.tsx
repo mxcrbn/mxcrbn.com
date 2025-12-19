@@ -31,9 +31,9 @@ export default function Home() {
                   href={`/posts/${post.slug}`}
                   className="block group"
                 >
-                  <div className="flex gap-12 items-center justify-between transition-all duration-200 p-4 rounded-lg group-hover:bg-gray-800/50">
-                    <div className="flex gap-12 items-baseline">
-                      <time className="font-normal min-w-[80px]" style={{ fontSize: '14px', color: '#aaa' }}>
+                  <div className="flex gap-12 items-center justify-between transition-all duration-200 p-4 rounded-lg group-hover:bg-gray-800/50 max-[920px]:bg-gray-800/50">
+                    <div className="flex gap-12 items-baseline max-[920px]:flex-col max-[920px]:gap-2">
+                      <time className="font-normal min-w-[80px] max-[920px]:min-w-0" style={{ fontSize: '14px', color: '#aaa' }}>
                         {formatDate(post.date)}
                       </time>
                       <h3 className="font-normal group-hover:text-white" style={{ fontSize: '14px', color: '#ddd' }}>
@@ -45,7 +45,7 @@ export default function Home() {
                       alt=""
                       width={20}
                       height={20}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 max-[920px]:hidden"
                     />
                   </div>
                 </Link>

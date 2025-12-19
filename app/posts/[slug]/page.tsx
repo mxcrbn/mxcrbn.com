@@ -193,7 +193,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
                     padding: '1px',
                     borderRadius: '6px'
                   }}>
-                    <p className="italic text-justify" style={{
+                    <p className="text-justify" style={{
                       fontSize: '14px',
                       color: '#ddd',
                       background: '#0a0a14',
@@ -231,7 +231,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
                     padding: '1px',
                     borderRadius: '6px'
                   }}>
-                    <p className="italic" style={{
+                    <p style={{
                       fontSize: '14px',
                       color: '#ddd',
                       background: '#0a0a14',
