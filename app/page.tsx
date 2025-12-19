@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getPostsByYear } from "@/lib/posts";
+import ScrambleText from "@/components/ScrambleText";
 
 export default function Home() {
   const postsByYear = getPostsByYear();
@@ -14,7 +15,9 @@ export default function Home() {
   return (
     <div style={{ opacity: 0.75 }}>
       <div className="mb-16">
-        <h1 className="font-bold mb-8" style={{ fontSize: '26px', color: '#eee' }}>Hey, I&apos;m Max</h1>
+        <h1 className="font-bold mb-8" style={{ fontSize: '26px', color: '#eee' }}>
+          Hey, I&apos;m <ScrambleText from="Max" to="mxcrbn" />
+        </h1>
         <p style={{ fontSize: '14px', color: '#ddd', lineHeight: '1.6' }}>
           I&apos;m a YC alum turned VC, focused on commercial open source software, infra and devtools (<Link href="/portfolio" className="underline hover:text-white">portfolio</Link>). I publish some of my thoughts here, mostly about open source & startups.
         </p>

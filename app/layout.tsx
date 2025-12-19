@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { PostHogProvider, PostHogPageView } from "@/components/PostHogProvider";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mxcrbn.com'),
@@ -89,14 +91,19 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <Header />
-        <div style={{ marginTop: '6vh' }}></div>
-        <div className="w-full flex justify-center">
-          <main className="w-full py-12 pt-24" style={{ paddingLeft: '15%', paddingRight: '15%', maxWidth: '2000px' }}>
-            {children}
-          </main>
-        </div>
-        <Footer />
+        <PostHogProvider>
+          <Suspense fallback={null}>
+            <PostHogPageView />
+          </Suspense>
+          <Header />
+          <div style={{ marginTop: '6vh' }}></div>
+          <div className="w-full flex justify-center">
+            <main className="w-full py-12 pt-24" style={{ paddingLeft: '15%', paddingRight: '15%', maxWidth: '2000px' }}>
+              {children}
+            </main>
+          </div>
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   );
